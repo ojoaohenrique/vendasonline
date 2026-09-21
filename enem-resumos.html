@@ -1,0 +1,505 @@
+<title>Resumos ENEM 500+</title>
+<style>
+  :root{
+    --ink:#15141c;
+    --ink-2:#1e1c27;
+    --ink-3:#28253388;
+    --paper:#faf6ea;
+    --paper-line:#e6dcc0;
+    --gold:#f4c430;
+    --gold-deep:#d9a300;
+    --coral:#ff6b5e;
+    --teal:#2ec4b6;
+    --violet:#b28dff;
+    --text:#f6f2e8;
+    --text-dim:#b7b3c4;
+    --text-faint:#847f96;
+    background:var(--ink);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+    padding-inline:20px;
+    line-height:1.5;
+  }
+  h1,h2,h3{
+    font-family:'Unbounded',system-ui,sans-serif;
+    text-wrap:balance;
+    margin:0;
+  }
+  p{margin:0;}
+  img{max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:640px;margin-inline:auto;}
+  .eyebrow{
+    font-family:'Caveat',cursive;
+    font-size:1.4rem;
+    font-weight:700;
+    letter-spacing:.01em;
+  }
+
+  /* ---------- announcement ---------- */
+  .announce{
+    margin-inline:-20px;
+    background:linear-gradient(90deg,var(--gold-deep),var(--gold));
+    color:#1a1400;
+    font-weight:800;
+    font-size:.8rem;
+    letter-spacing:.03em;
+    text-align:center;
+    padding:8px 20px;
+    text-transform:uppercase;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{padding-block:40px 28px;}
+  .hero .eyebrow{color:var(--gold);}
+  .hero h1{
+    font-size:clamp(2.1rem,9vw,2.9rem);
+    font-weight:900;
+    line-height:1.06;
+    margin-block:10px 16px;
+    letter-spacing:-.01em;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--gold);
+  }
+  .hero p.lede{
+    color:var(--text-dim);
+    font-size:1.05rem;
+    max-width:46ch;
+  }
+  .hero-cta{margin-top:24px;display:flex;flex-direction:column;gap:10px;align-items:flex-start;}
+  .price-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .price-old{color:var(--text-faint);text-decoration:line-through;font-size:1.05rem;}
+  .price-new{
+    font-family:'Unbounded',sans-serif;
+    font-weight:900;
+    font-size:2.6rem;
+    color:var(--gold);
+    font-variant-numeric:tabular-nums;
+  }
+  .price-new small{font-size:1.1rem;font-weight:700;}
+  .price-note{color:var(--text-faint);font-size:.85rem;}
+
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    background:linear-gradient(180deg,var(--gold),var(--gold-deep));
+    color:#1a1400;
+    font-weight:800;
+    font-size:1.05rem;
+    padding:16px 26px;
+    border-radius:12px;
+    width:100%;
+    box-shadow:0 10px 24px -10px #f4c43066;
+    border:1px solid #ffe28a;
+    transition:transform .15s ease;
+  }
+  .btn-primary:active{transform:scale(.98);}
+  .btn-primary:focus-visible{outline:3px solid var(--teal);outline-offset:2px;}
+
+  .trust-row{
+    margin-top:18px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    color:var(--text-faint);
+    font-size:.8rem;
+  }
+  .trust-row span{display:flex;align-items:center;gap:6px;}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);flex:none;}
+
+  /* ---------- gallery ---------- */
+  .section{padding-block:36px;}
+  .section-head{margin-bottom:18px;}
+  .section-head h2{
+    font-size:1.5rem;
+    font-weight:800;
+    letter-spacing:-.01em;
+  }
+  .section-head p{color:var(--text-dim);margin-top:6px;font-size:.95rem;}
+
+  .gallery{
+    display:flex;
+    gap:14px;
+    overflow-x:auto;
+    padding-bottom:10px;
+    margin-inline:-20px;
+    padding-inline:20px;
+    scroll-snap-type:x proximity;
+  }
+  .note{
+    scroll-snap-align:start;
+    flex:0 0 auto;
+    width:210px;
+    background:var(--paper);
+    color:#241f14;
+    border-radius:14px;
+    padding:16px 16px 18px;
+    position:relative;
+    box-shadow:0 14px 26px -16px #00000080;
+    transform:rotate(var(--tilt,0deg));
+  }
+  .note:nth-child(1){--tilt:-2deg;}
+  .note:nth-child(2){--tilt:1.5deg;}
+  .note:nth-child(3){--tilt:-1deg;}
+  .note:nth-child(4){--tilt:2deg;}
+  .note .tag{
+    display:inline-block;
+    font-size:.68rem;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    padding:3px 8px;
+    border-radius:99px;
+    color:#fff;
+    margin-bottom:10px;
+  }
+  .note h3{
+    font-family:'Unbounded',sans-serif;
+    font-size:1.05rem;
+    font-weight:700;
+    line-height:1.15;
+    margin-bottom:8px;
+    color:#1c1710;
+  }
+  .note p{font-size:.82rem;color:#4a4433;line-height:1.45;}
+  .note .rule{
+    margin-top:12px;
+    height:1px;
+    background:repeating-linear-gradient(90deg,var(--paper-line) 0 6px,transparent 6px 10px);
+  }
+
+  /* ---------- benefits ---------- */
+  .benefits{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .benefit{
+    background:var(--ink-2);
+    border:1px solid #ffffff14;
+    border-radius:14px;
+    padding:16px;
+  }
+  .benefit .icon{
+    width:34px;height:34px;border-radius:9px;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:10px;
+    font-family:'Unbounded',sans-serif;font-weight:800;font-size:.95rem;
+  }
+  .benefit h3{font-size:.92rem;font-weight:700;margin-bottom:6px;line-height:1.25;}
+  .benefit p{font-size:.78rem;color:var(--text-dim);line-height:1.4;}
+
+  /* ---------- subjects ---------- */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    font-size:.82rem;
+    font-weight:600;
+    padding:8px 13px;
+    border-radius:99px;
+    background:var(--ink-2);
+    border:1px solid #ffffff1f;
+    color:var(--text);
+  }
+
+  /* ---------- pricing card ---------- */
+  .price-card{
+    background:radial-gradient(120% 140% at 0% 0%,#2a2536,var(--ink-2));
+    border:1px solid #ffffff1a;
+    border-radius:18px;
+    padding:26px 22px;
+    text-align:left;
+  }
+  .price-card .badge{
+    display:inline-block;
+    background:var(--teal);
+    color:#04211d;
+    font-weight:800;
+    font-size:.72rem;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    padding:4px 10px;
+    border-radius:99px;
+    margin-bottom:14px;
+  }
+  .price-card ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:9px;}
+  .price-card li{
+    font-size:.88rem;
+    color:var(--text-dim);
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+  }
+  .check{
+    flex:none;width:18px;height:18px;border-radius:5px;
+    background:var(--gold);color:#1a1400;
+    font-size:.7rem;font-weight:900;
+    display:flex;align-items:center;justify-content:center;
+    margin-top:1px;
+  }
+
+  /* ---------- faq ---------- */
+  .faq-item{
+    border-bottom:1px solid #ffffff1a;
+    padding-block:14px;
+  }
+  .faq-item summary{
+    cursor:pointer;
+    font-weight:700;
+    font-size:.95rem;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary .plus{
+    flex:none;width:22px;height:22px;border-radius:50%;
+    border:1px solid #ffffff33;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1rem;color:var(--gold);
+    transition:transform .2s ease;
+  }
+  .faq-item[open] summary .plus{transform:rotate(45deg);}
+  .faq-item p{margin-top:10px;color:var(--text-dim);font-size:.86rem;line-height:1.5;max-width:56ch;}
+
+  /* ---------- final cta ---------- */
+  .final-cta{
+    text-align:center;
+    padding-block:38px 10px;
+  }
+  .final-cta h2{font-size:1.6rem;font-weight:800;margin-bottom:10px;}
+  .final-cta p{color:var(--text-dim);font-size:.92rem;margin-bottom:20px;}
+
+  footer{
+    padding-block:26px 40px;
+    border-top:1px solid #ffffff14;
+    margin-top:20px;
+    color:var(--text-faint);
+    font-size:.74rem;
+    line-height:1.6;
+  }
+
+  /* sticky mobile bar */
+  .sticky-bar{
+    position:fixed;
+    left:0;right:0;bottom:0;
+    background:var(--ink-2);
+    border-top:1px solid #ffffff1f;
+    padding:10px 20px calc(10px + env(safe-area-inset-bottom,0px));
+    display:flex;
+    align-items:center;
+    gap:12px;
+    z-index:20;
+    box-shadow:0 -10px 24px -18px #000a;
+  }
+  .sticky-bar .sb-price{
+    font-family:'Unbounded',sans-serif;
+    font-weight:800;
+    font-size:1.05rem;
+    color:var(--gold);
+    white-space:nowrap;
+  }
+  .sticky-bar .btn-primary{padding:12px 18px;font-size:.92rem;width:auto;flex:1;}
+  body{padding-bottom:78px;}
+
+  @media (min-width:600px){
+    .hero h1{font-size:3.2rem;}
+    .benefits{grid-template-columns:repeat(4,1fr);}
+  }
+</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800;900&family=Manrope:wght@400;500;700;800&family=Caveat:wght@600;700&display=swap">
+
+<div class="announce">Preço de lançamento — por tempo limitado</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <p class="eyebrow">revise mais. acerte mais. realize.</p>
+    <h1>500+ resumos pra você dominar <em>todas as matérias</em> do ENEM</h1>
+    <p class="lede">Material completo, atualizado e direto ao ponto — organizado por matéria, pra você revisar rápido e não perder tempo com texto corrido.</p>
+
+    <div class="hero-cta">
+      <div class="price-row">
+        <span class="price-old">R$ 49,90</span>
+        <span class="price-new"><small>R$</small> 9,90</span>
+      </div>
+      <p class="price-note">pagamento único · acesso imediato em PDF</p>
+      <a href="#" id="cta-hero" class="btn-primary js-checkout">Garantir meu acesso agora</a>
+    </div>
+
+    <div class="trust-row">
+      <span><i class="dot"></i>Todas as matérias do ENEM</span>
+      <span><i class="dot" style="background:var(--coral)"></i>Download em PDF</span>
+      <span><i class="dot" style="background:var(--violet)"></i>Acesso vitalício</span>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Amostra do material">
+    <div class="section-head">
+      <h2>Dá uma olhada no estilo dos resumos</h2>
+      <p>Esquematizado, colorido e fácil de revisar — nada de parágrafo gigante.</p>
+    </div>
+    <div class="gallery">
+      <article class="note">
+        <span class="tag" style="background:var(--teal)">Português</span>
+        <h3>Colocação Pronominal</h3>
+        <p>Próclise, mesóclise e ênclise: quando usar cada uma, com exemplos que caem na prova.</p>
+        <div class="rule"></div>
+      </article>
+      <article class="note">
+        <span class="tag" style="background:var(--coral)">Filosofia</span>
+        <h3>Sócrates &amp; a maiêutica</h3>
+        <p>O método socrático e o "só sei que nada sei", explicados sem enrolação.</p>
+        <div class="rule"></div>
+      </article>
+      <article class="note">
+        <span class="tag" style="background:#5b8def">História</span>
+        <h3>Guerra Fria</h3>
+        <p>Capitalismo x socialismo, corrida espacial e os conflitos que mais caem no ENEM.</p>
+        <div class="rule"></div>
+      </article>
+      <article class="note">
+        <span class="tag" style="background:var(--violet)">Português</span>
+        <h3>Funções da Linguagem</h3>
+        <p>Referencial, emotiva, conativa, poética, fática e metalinguística — identifique cada uma em segundos.</p>
+        <div class="rule"></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Benefícios">
+    <div class="section-head">
+      <h2>Por que estudar com esse material</h2>
+    </div>
+    <div class="benefits">
+      <div class="benefit">
+        <div class="icon" style="background:var(--teal);color:#04211d">Aa</div>
+        <h3>Todas as matérias principais</h3>
+        <p>Do Português à Sociologia, um resumo objetivo pra cada assunto que cai no ENEM.</p>
+      </div>
+      <div class="benefit">
+        <div class="icon" style="background:var(--coral);color:#2b0d08">⚡</div>
+        <h3>Revisão rápida e direta</h3>
+        <p>Sem enrolação — só o que você precisa saber pra revisar em minutos.</p>
+      </div>
+      <div class="benefit">
+        <div class="icon" style="background:var(--violet);color:#1c1030">☰</div>
+        <h3>Linguagem simples e esquematizada</h3>
+        <p>Tópicos, esquemas e destaques — fácil de entender e de lembrar.</p>
+      </div>
+      <div class="benefit">
+        <div class="icon" style="background:var(--gold);color:#1a1400">↓</div>
+        <h3>Acesso imediato em PDF</h3>
+        <p>Baixe assim que confirmar o pagamento e estude offline, quando quiser.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Matérias inclusas">
+    <div class="section-head">
+      <h2>Matérias inclusas</h2>
+      <p>Um único material com resumos de todas essas áreas.</p>
+    </div>
+    <div class="chips">
+      <span class="chip">Português</span>
+      <span class="chip">Redação</span>
+      <span class="chip">Matemática</span>
+      <span class="chip">Física</span>
+      <span class="chip">Química</span>
+      <span class="chip">Biologia</span>
+      <span class="chip">História</span>
+      <span class="chip">Geografia</span>
+      <span class="chip">Filosofia</span>
+      <span class="chip">Sociologia</span>
+      <span class="chip">Inglês</span>
+      <span class="chip">Espanhol</span>
+      <span class="chip">Atualidades</span>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Preço">
+    <div class="price-card">
+      <span class="badge">oferta de lançamento</span>
+      <div class="price-row">
+        <span class="price-old">R$ 49,90</span>
+        <span class="price-new"><small>R$</small> 9,90</span>
+      </div>
+      <p class="price-note">pagamento único · sem mensalidade</p>
+      <ul>
+        <li><span class="check">✓</span>Mais de 500 resumos, todas as matérias do ENEM</li>
+        <li><span class="check">✓</span>Arquivo em PDF, liberado na hora</li>
+        <li><span class="check">✓</span>Funciona no celular, tablet ou computador</li>
+        <li><span class="check">✓</span>Acesso vitalício ao material</li>
+      </ul>
+      <a href="#" class="btn-primary js-checkout" style="margin-top:20px;">Quero garantir por R$ 9,90</a>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Perguntas frequentes">
+    <div class="section-head">
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <details class="faq-item" open>
+      <summary>Como eu recebo o material depois de comprar? <span class="plus">+</span></summary>
+      <p>Assim que o pagamento é confirmado, você recebe o acesso para baixar o PDF direto na tela de confirmação e por e-mail.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Funciona no celular? <span class="plus">+</span></summary>
+      <p>Sim. É um arquivo em PDF, então abre em qualquer celular, tablet ou computador — e dá pra estudar offline depois de baixado.</p>
+    </details>
+    <details class="faq-item">
+      <summary>O material é atualizado? <span class="plus">+</span></summary>
+      <p>Sim, os resumos acompanham a matriz de referência mais recente do ENEM.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Posso pedir reembolso? <span class="plus">+</span></summary>
+      <p>As condições de reembolso seguem a política de compra da plataforma de pagamento utilizada.</p>
+    </details>
+  </section>
+
+  <section class="final-cta">
+    <h2>Um investimento pequeno no seu futuro gigante.</h2>
+    <p>Revise mais, acerte mais, realize — comece agora.</p>
+    <a href="#" class="btn-primary js-checkout">Garantir meu acesso por R$ 9,90</a>
+  </section>
+
+  <footer>
+    Material de estudo produzido de forma independente para apoio à revisão do ENEM. ENEM é um exame do INEP/MEC; este produto não possui vínculo oficial com essas instituições.
+  </footer>
+</div>
+
+<div class="sticky-bar">
+  <span class="sb-price">R$ 9,90</span>
+  <a href="#" class="btn-primary js-checkout">Garantir acesso</a>
+</div>
+
+<script>
+  // Cole aqui o link de checkout (Hotmart / Kiwify / Eduzz / Mercado Pago...)
+  const CHECKOUT_URL = "https://pay.cakto.com.br/3c4iq48_1112212";
+
+  document.querySelectorAll('.js-checkout').forEach(function(el){
+    if (CHECKOUT_URL) {
+      el.href = CHECKOUT_URL;
+      el.target = '_blank';
+      el.rel = 'noopener';
+    } else {
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        el.textContent = 'Link de pagamento ainda não configurado';
+        setTimeout(function(){
+          document.querySelectorAll('.js-checkout').forEach(function(b){
+            if (b.dataset.orig) b.textContent = b.dataset.orig;
+          });
+        }, 2200);
+      });
+      el.dataset.orig = el.textContent;
+    }
+  });
+</script>
